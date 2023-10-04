@@ -75,7 +75,10 @@ const WishlistScreen = ({ navigation }: TabsStackScreenProps<"Wishlist">) => {
 
 
                 <View style={{ flex: 1 }} />
-                <TouchableOpacity
+                <TouchableOpacity 
+                 onPress={() => {
+                    navigation.navigate("TabsStack", { screen: "Cart" });
+                  }}
                     style={{
                         width: 52,
                         aspectRatio: 1,
@@ -128,7 +131,7 @@ const WishlistScreen = ({ navigation }: TabsStackScreenProps<"Wishlist">) => {
                                 brand="Sprite"
                                 title='SPRITE green coke'
                                 availability='In Stock'
-                                price={130}
+                                price={2230}
                                 imageUrl="https://images.unsplash.com/photo-1631180543602-727e1197619d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"
                             />
 
@@ -137,7 +140,7 @@ const WishlistScreen = ({ navigation }: TabsStackScreenProps<"Wishlist">) => {
                                 brand="Sprite"
                                 title='SPRITE green coke'
                                 availability='Out of Stock'
-                                price={130}
+                                price={5400}
                                 imageUrl="https://images.unsplash.com/photo-1605091862660-a8d1d770dfc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80"
                             />
 
@@ -146,7 +149,7 @@ const WishlistScreen = ({ navigation }: TabsStackScreenProps<"Wishlist">) => {
                                 brand="Sprite"
                                 title='SPRITE green coke'
                                 availability='In Stock'
-                                price={130}
+                                price={1380}
                                 imageUrl="https://images.unsplash.com/photo-1602726428221-9af5b227ed5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
                             />
 
@@ -155,7 +158,7 @@ const WishlistScreen = ({ navigation }: TabsStackScreenProps<"Wishlist">) => {
                                 brand="Sprite"
                                 title='SPRITE green coke'
                                 availability='In Stock'
-                                price={130}
+                                price={1700}
                                 imageUrl="https://images.unsplash.com/photo-1618354691249-18772bbac3a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fHdhdGVyJTIwYm90dGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
                             />
 
@@ -164,7 +167,7 @@ const WishlistScreen = ({ navigation }: TabsStackScreenProps<"Wishlist">) => {
                                 brand="Sprite"
                                 title='SPRITE green coke'
                                 availability='Out of Stock'
-                                price={130}
+                                price={4600}
                                 imageUrl="https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2008&q=80"
                             />
 
@@ -210,7 +213,7 @@ const Card = ({ availability, brand, discount, price, imageUrl, title, onPress }
 
 
 
-                    <Text style={styles.price}>LKR {price}</Text>
+                    <Text style={styles.price}>LKR {(price).toLocaleString()}</Text>
                     <View style={{ flexDirection: "row", alignItems: "center", gap: 1 }}>
                         <Text style={styles.discountHead}>{availability}</Text>
                     </View>

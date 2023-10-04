@@ -28,14 +28,14 @@ const MESONARY_LIST_DATA = [
     imageUrl: "https://images.unsplash.com/photo-1690988109041-458628590a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80",
     title: "Sprite 100ml",
     brand: "Sprite",
-    price: 430,
+    price: 4330,
   },
   {
     imageUrl:
       "https://images.unsplash.com/photo-1605091862660-a8d1d770dfc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80",
     title: "Day Perfume",
     brand: "Marc Jacobs",
-    price: 200,
+    price: 25000,
   },
   {
     imageUrl:
@@ -65,7 +65,7 @@ const MESONARY_LIST_DATA = [
       "https://images.unsplash.com/photo-1631180543602-727e1197619d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80",
     title: "Unicorn Socks",
     brand: "Nike",
-    price: 460,
+    price: 1200,
   },
 ]
 
@@ -101,6 +101,9 @@ const HomeScreen = ({ navigation }: TabsStackScreenProps<"Home">) => {
     <ScrollView>
       <SafeAreaView style={{ paddingVertical: 24, gap: 24 }}>
         {/*Header Section*/}
+        <TouchableOpacity onPress={() => {
+                            navigation.navigate("TabsStack", { screen: "Profile" });
+                          }}> 
         <View style={{ paddingHorizontal: 24, flexDirection: "row", alignItems: "center", gap: 8 }}>
           <Image source={{
             uri: AVATAR_URL,
@@ -112,6 +115,9 @@ const HomeScreen = ({ navigation }: TabsStackScreenProps<"Home">) => {
               numberOfLines={1}>Choose your Own Choice</Text>
           </View>
           <TouchableOpacity
+           onPress={() => {
+            navigation.navigate("TabsStack", { screen: "Wishlist" });
+          }}
             style={{
               width: 52,
               aspectRatio: 1,
@@ -119,12 +125,13 @@ const HomeScreen = ({ navigation }: TabsStackScreenProps<"Home">) => {
               justifyContent: "center",
               borderRadius: 52,
               borderWidth: 1,
-              borderColor: colors.border,
+              borderColor: colors.primary,
             }}>
-            <Icons name='favorite' size={24} color={colors.text} />
+            <Icons name='favorite' size={24} color={colors.primary} />
 
           </TouchableOpacity>
         </View>
+        </TouchableOpacity>
 
         {/*Search Section*/}
         <View style={{ flexDirection: 'row', paddingHorizontal: 24, gap: 12 }}>
@@ -217,7 +224,7 @@ const HomeScreen = ({ navigation }: TabsStackScreenProps<"Home">) => {
                   });
                 }}
                 title='Face wash'
-                price={130}
+                price={13300}
                 imageUrl="https://images.unsplash.com/photo-1605091862660-a8d1d770dfc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80" />
             </View>
             <View style={{ flex: 1, gap: 12 }}>
@@ -334,7 +341,7 @@ const HomeScreen = ({ navigation }: TabsStackScreenProps<"Home">) => {
 
 
 
-                      <Icons name='favorite-border' size={20} color={colors.text} />
+                      <Icons name='favorite-border' size={20} color={colors.primary} />
 
                     </TouchableOpacity>
                   </View>
@@ -353,13 +360,13 @@ const HomeScreen = ({ navigation }: TabsStackScreenProps<"Home">) => {
                     <Text
                       style={{
                         flex: 1,
-                        fontSize: 16,
-                        fontWeight: "500",
+                        fontSize: 14,
+                        fontWeight: "600",
                         color: "#ffff",
                         marginLeft: 4
                       }}
-                      numberOfLines={1}>LKR{item.price}</Text>
-                    <TouchableOpacity style={{ paddingHorizontal: 12, paddingVertical: 8, borderRadius: 100, backgroundColor: "#fff" }}><Icons name='add-shopping-cart' size={20} color={"#000"} /></TouchableOpacity>
+                      numberOfLines={1}>LKR {(item.price).toLocaleString()}</Text>
+                    <TouchableOpacity style={{ paddingHorizontal: 12, paddingVertical: 8, borderRadius: 100, backgroundColor: "#fff" }}><Icons name='add-shopping-cart' size={20} color={"#21367F"} /></TouchableOpacity>
 
                   </BlurView>
                 </View>
@@ -425,7 +432,7 @@ const Card = ({ price, imageUrl, title, onPress }: { price: number; imageUrl: st
           {title}
         </Text>
         <Text style={{ fontSize: 15, fontWeight: '500', color: '#fff' }}>
-          LKR {price}
+        LKR {(price).toLocaleString()}
         </Text>
       </View>
     </TouchableOpacity>

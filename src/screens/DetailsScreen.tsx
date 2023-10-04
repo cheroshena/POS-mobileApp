@@ -99,7 +99,10 @@ const DetailsScreen = ({
             <Icons name='arrow-back' size={24} color={"#fff"} />
           </TouchableOpacity>
           <View style={{ flex: 1 }} />
-          <TouchableOpacity
+
+          <TouchableOpacity onPress={() => {
+            navigation.navigate("TabsStack", { screen: "Wishlist" });
+          }}
             style={{
               width: 52,
               aspectRatio: 1,
@@ -112,8 +115,9 @@ const DetailsScreen = ({
             <Icons name='favorite' size={24} color={"#fff"} />
 
           </TouchableOpacity>
-          <TouchableOpacity
-
+          <TouchableOpacity onPress={() => {
+            navigation.navigate("TabsStack", { screen: "Cart" });
+          }}
             style={{
               width: 52,
               aspectRatio: 1,
@@ -179,7 +183,7 @@ const DetailsScreen = ({
                 fontSize: 22,
                 fontWeight: '700',
                 color: colors.text,
-      }}>Mark Jacobs (Day Perfume)</Text>
+              }}>Mark Jacobs (Day Perfume)</Text>
             <Text
               style={{
                 marginTop: 1,
@@ -299,7 +303,7 @@ const DetailsScreen = ({
                 <Text style={{ marginTop: 19, flex: 1, fontSize: 16, fontWeight: "600", color: colors.text }}>Price</Text>
 
               </View>
-              <Text style={{ marginTop: 1, flex: 1, fontSize: 25, fontWeight: "600", color: colors.text }}>LKR 14,999.00</Text>
+              <Text style={{ marginTop: 1, flex: 1, fontSize: 25, fontWeight: "600", color: colors.text }}>LKR {(2500).toLocaleString()}</Text>
 
               <View style={{ flexDirection: 'row', alignItems: "center", gap: 16 }}>
                 <View style={{ flex: 1 }}></View>
@@ -384,97 +388,7 @@ const DetailsScreen = ({
 
             </View>
 
-            <View style={{ flexDirection: "column", alignItems: "center", gap: 4 }}>
-              <View style={{ flexDirection: 'row', marginTop: 30 }}>
-                <Text style={{ flex: 1, fontSize: 16, fontWeight: "600", color: colors.text, marginTop: 8 }}>Ratings & Review</Text>
-              </View>
-              <View style={{ flexDirection: "row", alignItems: 'center', gap: 8, marginTop: 1 }}>
-                <View style={{ flex: 1 }}>
-                  {/* Rating Star */}
-                  <View style={{ flexDirection: "row", gap: 2 }}>
-                    {new Array(5).fill("").map((_, i) => (
-                      <Icons
-                        key={i}
-                        name={i < 0 ? "star" : "star-border"}
-                        color="#facc15"
-                        size={30}
-                      />
-                    ))}
-                  </View>
-
-                </View>
-              </View>
-
-
-              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 19 }}>
-                <Text style={{ marginTop: 15, flex: 1, fontSize: 16, fontWeight: "600", color: colors.text }}>Comment</Text>
-              </View>
-              <View style={{ flex: 1 }}>
-
-                <KeyboardAvoidingView
-
-                  style={{
-                    marginTop: 4,
-                    height: 64,
-                    borderRadius: 64,
-                    alignItems: 'center',
-                    marginBottom: 30,
-                  }}
-                >
-
-
-                  <TextInput
-                    multiline
-                    numberOfLines={5}
-                    maxLength={100}
-
-                    style={{
-                      borderRadius: 14,
-                      backgroundColor: "#fff",
-                      marginBottom: 0,
-                      borderWidth: 1,
-                      borderColor: "#dcdcdc",
-                      padding: 15,
-                      height: 90,
-                      width: 350,
-                    }}
-                    placeholder="Enter your comment"
-                  />
-
-                </KeyboardAvoidingView>
-              </View>
-              <View style={{ flexDirection: "column", flexWrap: "wrap", alignItems: "center", gap: 16 }}>
-
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: colors.primary,
-                    height: 64,
-                    borderRadius: 64,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: "relative",
-                    flexDirection: "row",
-                    padding: 9,
-                    width: 120,
-                    margin: 2,
-                    marginBottom: 400,
-
-                  }}>
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      fontWeight: '600',
-                      color: colors.background
-                    }}>
-                    Submit
-                  </Text>
-
-                </TouchableOpacity>
-
-              </View>
-
-
-            </View>
+            
 
           </View>
 

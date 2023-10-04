@@ -7,16 +7,22 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import React from 'react';
+import UserProfileScreen from './src/screens/UserProfileScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import CartScreen from './src/screens/CartScreen';
+import OrderHistoryScreen from './src/screens/OrderHistoryScreen';
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
   const theme: Theme = useMemo(() => ({
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      background: "#f5f5f5",
+      background: "#fcfeff",
       text: "#191919",
       border: "#D9D9D9",
-      primary: "#191919"
+      primary: "#2a2755"
     }
   }), [])
   return (
@@ -25,6 +31,7 @@ export default function App() {
         <NavigationContainer theme={theme}>
           <BottomSheetModalProvider>
             <RootNavigator />
+            
 
           </BottomSheetModalProvider>
 
